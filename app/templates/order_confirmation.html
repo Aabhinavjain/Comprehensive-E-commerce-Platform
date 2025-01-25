@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Order Confirmation</h2>
+<p>Thank you for your purchase! Your order ID is <strong>{{ order.id }}</strong>.</p>
+<p>Total Amount: ${{ "%.2f"|format(order.total_amount) }}</p>
+
+<h3>Order Items</h3>
+<table class="table">
+  <thead><tr><th>Product</th><th>Quantity</th><th>Price</th></tr></thead>
+  <tbody>
+  {% for item in order.items %}
+  <tr>
+    <td>{{ item.product.name }}</td>
+    <td>{{ item.quantity }}</td>
+    <td>${{ "%.2f"|format(item.price * item.quantity) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('main.home') }}" class="btn btn-primary">Continue Shopping</a>
+{% endblock %}
+

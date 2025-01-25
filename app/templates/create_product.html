@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create/Edit Product</h2>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.name.label }}
+        {{ form.name(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label }}
+        {{ form.description(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.price.label }}
+        {{ form.price(class_="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.image.label }}
+        {{ form.image(class_="form-control") }}
+    </div>
+    {{ form.submit(class_="btn btn-primary") }}
+</form>
+{% endblock %}
